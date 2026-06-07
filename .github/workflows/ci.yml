@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      contents: read
       packages: write
 
     steps:
@@ -24,6 +25,6 @@ jobs:
       - run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - run: docker build -t ghcr.io/${{ github.repository_owner }}/node-app:latest .
+      - run: docker build -t ghcr.io/mayankraj72004/node-app:latest .
 
-      - run: docker push ghcr.io/${{ github.repository_owner }}/node-app:latest
+      - run: docker push ghcr.io/mayankraj72004/node-app:latest 
